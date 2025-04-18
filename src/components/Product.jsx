@@ -141,12 +141,12 @@
 // export default BookList;
 
 //  9.  Властивість props.children
-const Card = ({ text }) => {
-  return <div>{text}</div>;
-};
-export default Card;
-
-// const Card = ({ children }) => {
-//   return <div>{children}</div>;
+// const Card = ({ text }) => {
+//   return <div>{text}</div>;
 // };
 // export default Card;
+
+const Card = ({ children }) => {
+  return <div>{children}</div>;
+};
+export default Card;

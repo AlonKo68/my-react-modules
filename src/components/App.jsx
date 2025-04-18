@@ -139,21 +139,22 @@ import './App.css'
 
 //  9.  Властивість props.children
 import Card from './Product';
-const App = () => {
- return ( 
-    <>
-      <Card text="Message as a text prop" />
-    </>
-  )
-}
-export default App;
 
 // const App = () => {
-//   return (
-//   <Card>
-// 	  <h1>Card title</h1>
-// 	  <p>Text between opening and closing tag</p>
-//   </Card >
+//  return ( 
+//     <>
+//       <Card text="Message as a text prop" />
+//     </>
 //   )
 // }
 // export default App;
+
+const App = () => {
+  return (
+  <Card>
+	  <h1>Card title</h1>
+	  <p>Text between opening and closing tag</p>
+  </Card >
+  )
+}
+export default App;
