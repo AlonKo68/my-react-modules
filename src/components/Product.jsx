@@ -1,13 +1,48 @@
-//  export default function Product() {
+//    4.   import/export
+// const altStr = "Tacos With Lime";
+// export default function Product() {
 //   return (
 //     <div>
 //       <h2>Tacos</h2>
 //       <img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
-//         alt="Tacos With Lime" width="640" />
+//         alt={altStr} width="640" />
 // 	  <p>Price: 999 credits</p>
 //     </div>
 //   );
 // };
+
+//  *******************task-1 **************
+//  const Profile = ({ name, tag, location, image, followers, views, likes }) => {
+//   return (
+//   <div>
+//   <div>
+//     <img
+//       src={image}
+//       alt="User avatar"
+//     />
+//     <p>{name}</p>
+//     <p>{tag}</p>
+//     <p>{location}</p>
+//   </div>
+//   <ul>
+//     <li>
+//       <span>Followers</span>
+//       <span>{followers}</span>
+//     </li>
+//     <li>
+//       <span>Views</span>
+//       <span>{views}</span>
+//     </li>
+//     <li>
+//       <span>Likes</span>
+//       <span>{likes}</span>
+//     </li>
+//   </ul>
+// </div>
+//   );
+//  };
+// export default Profile;
+//*******************task-1*********** */
 
 //5.  JSX - опис UI
 
@@ -146,7 +181,12 @@
 // };
 // export default Card;
 
-const Card = ({ children }) => {
-  return <div>{children}</div>;
-};
-export default Card;
+//   **************
+// const Card = ({ children }) => {
+//   return <div>{children}</div>;
+// };
+// export default Card;
+
+//Заняття 2. Вбудовані стилі
+//  1.1. Динамічні стилі
+
