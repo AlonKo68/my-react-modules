@@ -1,4 +1,4 @@
-import CatProfile from './CatProfile';
+import CatProfile from '../CatProfile/CatProfile';
 
 export default function CatList({itemsCat}) { 
     return (

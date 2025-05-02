@@ -4,7 +4,7 @@ import './index.css'
 
 // Імпорт стилів нормалізації
 import "modern-normalize";
-import App from './components/App.jsx'
+import App from './components/App/App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

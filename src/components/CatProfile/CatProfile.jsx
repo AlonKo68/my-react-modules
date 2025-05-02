@@ -1,16 +1,3 @@
-// export default function CatProfile({ cat: {name, image } }) {
-//     return (
-//         <div>
-//             <h1>My cat</h1>
-//             <img src={image} alt={name} width="280" />
-//             <h2>{name}</h2>
-    
-//         </div>
-//     );
-// };
-
-//   ****************************************
-
 export default function CatProfile({ cats: { name, phone, email, image } }) {
     return (
         <>
