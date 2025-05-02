@@ -534,7 +534,7 @@ export default function App() {
       </div>
     );
 };
-
+console.log("Hello world");
 
 // *************************** task-1 ************
 // import Profile from './CatProfile';
