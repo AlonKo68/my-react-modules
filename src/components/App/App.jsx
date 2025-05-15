@@ -1,244 +1,303 @@
 // import React from 'react';
-// import './App.css'
-
+//  -- Стан компонента ----------
+import {useState} from 'react';
 import css from './App.module.css';
 
-//Заняття 1. Обробка подій
-// const App = () => {
-  // 	return <button>Click me!</button>;
-  // };
-  // export default App;
-  
-  //-----------------------------
-  // const App = () => {
-    // 	const handleClick = () => {
-      // 		alert("I'm a button!");
-      // 	};
-      // 	return <button onClick={handleClick}>Click me!</button>;
-      // };
-      // export default App;
-      
-      // export default function App() {
-        //   const handleClick = () => {
-//     alert("I'm a button!");
-//   };
-//   return <button onClick={handleClick}>Click me!</button>;
-// }
-
-//------------------------------
-// const App = () => {
-  //   return <button onClick={() => alert("I'm a button!")}>Click me!</button>;
-  // };
-  // export default App;
-  
-  //---------------1. Посилання на функцію---------------
-  // const App = () => {
-//     return <button onClick={alert('You clicked me!')}>Click me!</button>;
-//   };
-//   export default App;
-
-//------------
-// const App = () => {
-  //   return <button onClick={() => alert("I'm a button!")}>Click me!</button>;
-  // };
-  // export default App;
-  
-  //-----------------2. Об'єкт події ---------------
-  //  export default function App() {
-    // 	const handleClick = (evt) => {
-      // 		console.log(evt);
-      // 	};
-      // 	return (
-        // 		<>
-        // 			<button onClick={handleClick}>First button</button>
-        // 			<button onClick={evt => console.log(evt)}>Second button</button>
-        // 		</>
-        // 	);
-        // };
-        
-        //-------------3. Читання props -------------
-        // import CustomButton from '../CustomButton';
-        
-        //   const App = () => {
-          //     return (
-            //       <>
-            //         <CustomButton message="Playing music!">
-            //           Play some music
-            //         </CustomButton>
-            //         <CustomButton message="Uploading your data!">
-            //           Upload data
-            //         </CustomButton>
-            //       </>
-            //     );
-            //   }
-// export default App;
-
-//--------- 5. Реактивність -----------
-// const App = () => {
-  // 	let clicks = 0;
-  
-  //   const handleClick = () => {
-    //     clicks = clicks + 1;
-    
-    //   };
-    
-    // 	return <button onClick={handleClick}>Current: {clicks}</button>
-    // };
-    // export default App;
-    
-    //------------------------  
-    // const App = () => {
-// 	const [ clicks, setClicks ] = useState(0);
-//   console.log(useState(0));
-
-//   const handleClick = () => {
-  //     // clicks = clicks + 1;
-  // 		setClicks(clicks + 1);
-  //   };
-  //   console.log(clicks);
-  
-  // 	return <button onClick={handleClick}>Current: {clicks}</button>
-  // };
-  // export default App;
-  
-  //-----------------6. Хук useState --------------
-  // import { useState } from 'react';
-
-  // export const App = () => {
-    //   const [clicks, setClicks] = useState(1);
-    //   console.log(clicks);
-    //   console.log(useState(1));
-//   const handleClick = () => {
-  //     setClicks(clicks + 1);
-  //   };
-  
-  //   return <button onClick={handleClick}>Number of clicks: {clicks}</button>;
-  // };
-  // export default App;
-  
-//-----------------7. Декілька станів --------------
-// import { useState } from 'react';
-
-// export default function App() {
-//   const [clicks, setClicks] = useState(0);
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const handleClick = () => {
-//     setClicks(clicks + 1);
-//   };
-
-//   const handleToggle = () => {
-//     setIsOpen(!isOpen);
-//   };
-
-//   return (
-//     <>
-//       <button onClick={handleClick}>Current: {clicks}</button>
-//       <button onClick={handleToggle}>{isOpen ? "Hide" : "Show"}</button>
-//       {isOpen && <p>Now you can see me!</p>}
-//     </>
-//   );
-// };
-
-//-------------8. Ізоляція стану ---------
-// import ClickCounter from '../ClickCounter/ClickCounter';
-// const App = () => {
-//   return (
-//     <>
-// 	  <ClickCounter />
-// 	  <ClickCounter />
-//     </>
-//   );
-// };
-// export default App;  
-
-//-----------------9. Підняття стану --------------
-// import { useState } from 'react';
-// import { ClickCounter } from '../ClickCounter/ClickCounter';
-
-// const App = () => {
-//   const [clicks, setClicks] = useState(0);
-
-//   const handleClick = () => {
-//     setClicks(clicks + 1);
-//   };
-
-//   return (
-//     <>
-//       <ClickCounter value={clicks} onUpdate={handleClick} />
-//       <ClickCounter value={clicks} onUpdate={handleClick} />
-//     </>
-//   );
-// };
-// export default App;
-
-//------------- 10. Оновлення об'єктів --------
-// import { useState } from 'react';
-
-// const App = () => {
-//   const [values, setValues] = useState({
-//     x: 0,
-//     y: 0,
-//   });
-
-//   const updateX = () => {
-//     setValues({
-//       ...values,
-//       x: values.x + 1,
-//     });
-//   };
-
-//   const updateY = () => {
-//     setValues({
-//       ...values,
-//       y: values.y + 1,
-//     });
-//   };
-
-//   return (
-//     <div>
-//       <p>
-//         x: {values.x}, y: {values.y}
-//       </p>
-
-//       <button onClick={updateX}>Update x</button>
-//       <button onClick={updateY}>Update y</button>
-//     </div>
-//   );
-// };
-// export default App;
-
-//      -----------  Заняття 2. Життєвий цикл компонента
-//------    2.1. Хук useEffect ---------
 // import { useState, useEffect } from "react";
 
-// const App = () => {
-//   const [clicks, setClicks] = useState(0);
+// ------- Заняття 3 - Події та стан компонента --------
+//    ----- Обробка подій -------
+// export default function App () {
+//   const handleClick = () => {
+//     console.log('Click');
+//   }
+//   const handleMouseEnter =(evt) => {
+//     // console.log('Mouse enter');
+//     console.log(evt);
+//   }
+//   return (
+//     <div className={css.container} onMouseEnter={handleMouseEnter}>
+//       State in React
+//       <button onClick={handleClick}>Click</button>
+//     </div>
+//   )
+// };
+
+// --------------------
+// export default function App () {
+//   const handleClick = () => {
+//     console.log('Click');
+//   }
+//   const handleMouseEnter =(evt) => {
+//     console.log(evt);
+//   }
+//   const passValue = (value) => {
+//     console.log(value);
+//   }
+//   // return (
+//   //   <div className={css.container} onMouseEnter={handleMouseEnter}>
+//   //     State in React
+//   //     <button onClick={handleClick}>Click</button>
+//   //     <button onDoubleClick={passValue}>Double click</button>
+//   //   </div>
+//   // )
+//   return (
+//     <div className={css.container} onMouseEnter={handleMouseEnter}>
+//       State in React
+//       <button onClick={handleClick}>Click</button>
+//       <button onDoubleClick={() => {passValue(5)}}>Double click</button>
+//     </div>
+//   )
+// };
+
+//  -- Стан компонента ----------
+
+// export default function App () {
+//   let clicks = 0;
+//   const handleClick = () => {
+//     clicks += 1;
+//     console.log("clicks", clicks);
+//   }
 
 //   return (
-//     <button onClick={() => setClicks(clicks + 1)}>
-//       You clicked {clicks} times
-//     </button>
-//   );
+//     <div className={css.container}>
+//       State in React
+//       <button onClick={handleClick}>Click: {clicks}</button>
+      
+//     </div>
+//   )
 // };
-// export default App;
 
-//------------------------
-import { useState, useEffect } from "react";
+// export default function App () {
+//   // const data = useState(0)
+//   // console.log(data);
+//   const [clicks, setClicks]= useState(0);
 
-const App = () => {
+//   const handleClick = () => {
+//     console.log("clicks", clicks);
+//     setClicks(clicks + 1);
+//     console.log(clicks);
+//     }
+
+//   return (
+//     <div className={css.container}>
+//       State in React
+//       <button onClick={handleClick}>Click: {clicks}</button>
+//     </div>
+//   )
+// };
+
+// ------------------- task 1 -------------------
+// import Counter from '../Counter';
+// export default function App () {
+
+//   return (
+//     <div className={css.container}>
+//       <Counter />
+//       <Counter />
+//       <Counter />
+//     </div>
+//   )
+// };
+
+//    ------- Підняття стану  ---------
+// import Counter from '../Counter';
+// export default function App () {
+//   const [clicks, setClicks] = useState(0);
+//   const handleClick = () => {
+//     setClicks(clicks + 1);
+//   }
+
+//   return (
+//     <div className={css.container}>
+//       <Counter value={clicks} onUpdate={handleClick}/>
+//       <Counter value={clicks} onUpate={handleClick}/>
+//       <Counter value={clicks} onUpdate={handleClick}/>
+//     </div>
+//   )
+// };
+
+// ------------------- task 2 -------------------
+// import Counter from '../Counter';
+// export default function App () {
+//   // 1
+//   const [clicks, setClicks] = useState(0);
+
+//   // 2
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   // 3
+//   const [tabIndex, setTabIndex] = useState(null);
+ 
+//   //1
+//   const handleClick = () => {
+//     setClicks(clicks + 1);
+//   }
+//   //2
+//   const toggleText = () => {
+//     setIsOpen(!isOpen);
+//   }
+
+//   //3
+//   const selectTab = (nextIndex) => {
+//     console.log(nextIndex);
+//     // setTabIndex(nextIndex);
+
+//     if (nextIndex === tabIndex) {
+//       setTabIndex(null);
+//     } else {
+//       setTabIndex(nextIndex);
+//     }
+//   }
+  
+//   return (
+//     <div className={css.container}>
+//       {/* 1 */}
+//       <Counter value={clicks} onUpdate={handleClick}/>
+//       <Counter value={clicks} onUpate={handleClick}/>
+//       <Counter value={clicks} onUpdate={handleClick}/>
+
+//       {/* 2 */}
+//       <hr />
+//       <button onClick={toggleText}>Toggle</button>
+//       {isOpen && <p>You can see me 😍💋</p>}
+
+//       {/* 3 */}
+//       <hr />
+//       <div>
+//         <div>
+//           <p onClick={() => selectTab(1)}>Tab 1</p>
+//           {tabIndex === 1 && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</p>}
+//         </div>
+//         <div>
+//           <p onClick={() => selectTab(2)}>Tab 2</p>
+//           {tabIndex === 2 && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</p>}
+//         </div>
+//         <div>
+//           <p onClick={() => selectTab(3)}>Tab 3</p>
+//          {tabIndex === 3 && <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</p>}
+//         </div>
+//       </div>
+     
+//     </div>
+//   )
+// };
+
+//    ------------------
+// import Counter from '../Counter';
+// import Accordion from '../Accordion'; 
+// export default function App () {
+// const items = [
+//   { title: 'Tab 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+//   { title: 'Tab 2', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+//   { title: 'Tab 3', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+// ]
+//   // 1
+//   const [clicks, setClicks] = useState(0);
+
+//   // 2
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   //1
+//   const handleClick = () => {
+//     setClicks(clicks + 1);
+//   }
+//   //2
+//   const toggleText = () => {
+//     setIsOpen(!isOpen);
+//   }
+
+//   return (
+//     <div className={css.container}>
+//       {/* 1 */}
+//       <Counter value={clicks} onUpdate={handleClick}/>
+//       <Counter value={clicks} onUpate={handleClick}/>
+//       <Counter value={clicks} onUpdate={handleClick}/>
+
+//       {/* 2 */}
+//       <hr />
+//       <button onClick={toggleText}>Toggle</button>
+//       {isOpen && <p>You can see me 😍💋</p>}
+
+//       {/* 3 */}
+//       <hr />
+//       <Accordion tabs={items}/>
+     
+//     </div>
+//   )
+// };
+
+//-----------
+import Counter from '../Counter';
+import Accordion from '../Accordion'; 
+export default function App () {
+  //3
+  const items = [
+    { title: 'Tab 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+    { title: 'Tab 2', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+    { title: 'Tab 3', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!' },
+  ]
+
+  //4
+  const [taskCount, setTaskCount] = useState({
+    work: 0,
+    hobby: 0,
+    edu: 0,
+  });
+ 
+  taskCount.hobby = 10;
+  console.log(taskCount.hobby);
+  const totalTask = taskCount.work + taskCount.hobby + taskCount.edu;
+
+  // 1
   const [clicks, setClicks] = useState(0);
 
-  // Оголошуємо ефект
-  useEffect(() => {
-    //змінювати заголовок вкладки браузера.
-    document.title = `You clicked ${clicks} times`;
-  });
+  // 2
+  const [isOpen, setIsOpen] = useState(false);
+
+  //1
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  }
+  //2
+  const toggleText = () => {
+    setIsOpen(!isOpen);
+  }
+  //4
+  const updateTaskCount = (taskType) => {
+    console.log(taskType);
+    // setTaskCount(() => ({
+    //   ...taskCount,
+    //  work: 5,
+    //  edu: taskCount.edu + 1,
+    //  hobby: taskCount.hobby + 1,
+    // }));
+  };
 
   return (
-    <button onClick={() => setClicks(clicks + 1)}>
-      You clicked {clicks} times
-    </button>
-  );
+    <div className={css.container}>
+      {/* 1 */}
+      <Counter value={clicks} onUpdate={handleClick}/>
+      <Counter value={clicks} onUpate={handleClick}/>
+      <Counter value={clicks} onUpdate={handleClick}/>
+
+      {/* 2 */}
+      <hr />
+      <button onClick={toggleText}>Toggle</button>
+      {isOpen && <p>You can see me 😍💋</p>}
+
+      {/* 3 */}
+      <hr />
+      <Accordion tabs={items}/>
+
+      {/* 4 */}
+      <hr />
+    <div>
+      <p>Total tasks: {totalTask}</p>
+      <button onClick={() => updateTaskCount('work')}>Work : {taskCount.work}</button>
+      <button onClick={() => updateTaskCount('hobby')}>Hobby : {taskCount.hobby}</button>
+      <button onClick={() => updateTaskCount('edu')}>Education : {taskCount.edu}</button>
+    </div>
+    </div>
+  )
 };
-export default App;
