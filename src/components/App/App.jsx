@@ -73,6 +73,7 @@ export default function App() {
       <button onClick={toggleTimer}>Toggle timerBox</button>
       {isTimeOpen && <Timer />}
       <p>Hello World!</p>
+      <p>Hello World!</p>
     </>
   );
 };
